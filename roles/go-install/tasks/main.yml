@@ -1,0 +1,9 @@
+---
+- name: Add GVM Installer Script
+  copy: src=gvm-installer dest=/home/{{user}}
+
+- name: Install GVM
+  command: bash /home/{{user}}/gvm-installer
+
+- name: Install go {{ version }} and set default
+  command: gvm install go{{ version }} && gvm user go{{ version }}
