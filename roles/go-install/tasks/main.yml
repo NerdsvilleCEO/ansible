@@ -6,4 +6,4 @@
   command: bash /home/{{user}}/gvm-installer
 
 - name: Install go {{ version }} and set default
-  command: gvm install go{{ version }} && gvm user go{{ version }}
+  command: gvm install go{{ version }} && gvm use go{{ version }} --default
