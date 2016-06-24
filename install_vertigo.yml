@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  gather_facts: false
+  vars:
+    inventory:
+      - name: iptables_host_1
+        image: "chrismeyers/centos6"
+  roles:
+    - { role: chrismeyersfsu.provision_docker, provision_docker_inventory: "{{inventory}}" }
+
+- hosts: docker_containers
+  roles:
+    - { role: go-install }
+    - { role: nginx_setup }
